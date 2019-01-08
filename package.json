@@ -1,0 +1,45 @@
+{
+  "name": "nhl-stats",
+  "version": "0.0.1",
+  "description": "NHL Statistics in a nice format",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config config/index.js",
+    "start": "NODE_ENV=development webpack-dev-server --config config/index.js --open --watch",
+    "test": "npm run mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Torniojaws/nhl-stats.git"
+  },
+  "keywords": [
+    "nhl",
+    "statistics",
+    "vue"
+  ],
+  "author": "Juha Untinen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Torniojaws/nhl-stats/issues"
+  },
+  "homepage": "https://github.com/Torniojaws/nhl-stats#readme",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^15.5.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "vue": "^2.5.21",
+    "vue-linkify": "^1.0.1",
+    "vue-router": "^3.0.2"
+  }
+}
