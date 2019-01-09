@@ -1,7 +1,6 @@
 <template>
   <div id="stats">
-    <h1>Games on {{ date }}</h1>
-    <hr />
+    <h1 class="text-center">Games on {{ date }}</h1>
     <game-item
       v-if="games"
       v-for="game in games"

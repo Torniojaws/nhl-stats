@@ -8,6 +8,7 @@ import Menu from '@/components/Menu';
 import Footer from '@/components/Footer';
 import Game from '@/components/Game';
 import GamePoints from '@/components/GamePoints';
+import GameGoalies from '@/components/GameGoalies';
 
 Vue.use(BootstrapVue);
 
@@ -17,6 +18,7 @@ Vue.component('main-menu', Menu);
 Vue.component('main-footer', Footer);
 Vue.component('game-item', Game);
 Vue.component('game-points', GamePoints);
+Vue.component('game-goalies', GameGoalies);
 
 new Vue({
   el: '#app',

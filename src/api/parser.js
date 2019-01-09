@@ -33,12 +33,40 @@ const getPoints = (team, data) => {
   // [ { "name": "Some Dude", "goals": 1, "assists": 0", "plusMinus": 1, "nationality": "FIN" } ]
   // We also want to sort them so that they are in total points order, with goals having priority:
   // 2+0 is before 1+1, and 0+2 is before 1+0
-  return scoringPlayers;
+  return scoringPlayers.sort((a, b) => {
+    return b.points - a.points;
+  });
 };
 
-// TODO
+/**
+ * Get the statistics for the goalies in the game.
+ * @param {string} team is either home or away
+ * @param {object} data contains the game data
+ * @return {object} the goalie statistics
+ */
 const getGoalies = (team, data) => {
-  return 'yes';
+  const allPlayers = data[team].players;
+  // Find the goalies - can be multiple in one game for the same team
+  let goalies = [];
+  Object.keys(allPlayers).forEach((key, index) => {
+    const stats = allPlayers[key].stats.goalieStats
+      ? allPlayers[key].stats.goalieStats
+      : null;
+
+    if (!stats) return;
+
+    const goalie = {
+      decision: stats.decision, // W for Win, L for Loss
+      name: allPlayers[key].person.fullName,
+      nationality: allPlayers[key].person.nationality,
+      saves: stats.saves,
+      savePercentage: stats.savePercentage.toFixed(2), // Round to 2 decimals, and .00 if exact
+      shots: stats.shots,
+      timeOnIce: stats.timeOnIce,
+    };
+    goalies.push(goalie);
+  });
+  return goalies;
 };
 
 /**

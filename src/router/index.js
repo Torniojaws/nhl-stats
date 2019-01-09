@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
   mode: 'history',
-  base: '/',
+  base: '/nhl',  // This will be served from this subdir. Change if elsewhere.
   routes: [
     {
       path: '/',
