@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-navbar toggleable="md" type="dark" variant="info">
-      NHL Statistics v0.0.1
+      NHL Statistics v0.0.2
     </b-navbar>
   </b-container>
 </template>

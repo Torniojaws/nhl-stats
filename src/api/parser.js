@@ -3,8 +3,14 @@
 // The results from the API response contain a TON of data, but we are only interested in a couple
 // of things. This helper collection does the heavy lifting.
 
+/**
+ * Get the points scored by players in a given team and return them sorted in descending order by
+ * total points.
+ * @param {string} team is either "home" or "away"
+ * @param {object} data has the game details from which we get the points and player info
+ * @return {array} contains objects of all players that scored points in the game
+ */
 const getPoints = (team, data) => {
-  console.log(`Getting ${team} points`);
   const allPlayers = data[team].players;
   // Find players in {team} that got points
   let scoringPlayers = [];
@@ -25,14 +31,10 @@ const getPoints = (team, data) => {
         plusMinus: stats.plusMinus || 0,
         points: (stats.goals + stats.assists),
       };
-      console.log("He shoots he scores!", scorer);
       scoringPlayers.push(scorer);
     }
   });
-  // We want to return results eg.
-  // [ { "name": "Some Dude", "goals": 1, "assists": 0", "plusMinus": 1, "nationality": "FIN" } ]
-  // We also want to sort them so that they are in total points order, with goals having priority:
-  // 2+0 is before 1+1, and 0+2 is before 1+0
+  // Sort by points. Highest points first
   return scoringPlayers.sort((a, b) => {
     return b.points - a.points;
   });
@@ -56,7 +58,7 @@ const getGoalies = (team, data) => {
     if (!stats) return;
 
     const goalie = {
-      decision: stats.decision, // W for Win, L for Loss
+      decision: stats.decision || 'x', // W for Win, L for Loss
       name: allPlayers[key].person.fullName,
       nationality: allPlayers[key].person.nationality,
       saves: stats.saves,

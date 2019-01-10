@@ -1,6 +1,6 @@
 {
   "name": "nhl-stats",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "NHL Statistics in a nice format",
   "main": "index.js",
   "scripts": {

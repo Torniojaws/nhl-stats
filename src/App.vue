@@ -13,7 +13,10 @@
     </b-row>
 
     <!-- And bottom row -->
-    <b-row><main-footer /></b-row>
+    <b-row>
+      <div class="spacer"></div>
+      <main-footer />
+    </b-row>
 
   </b-container>
 </template>
@@ -33,5 +36,8 @@ export default {
 }
 h1 {
   color: green;
+}
+.spacer {
+  padding-top: 50px;
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="stats">
     <h1 class="text-center">Games on {{ date }}</h1>
     <game-item
-      v-if="games"
+      v-if="games.length"
       v-for="game in games"
       :key="game.gamePk"
       :id="game.gamePk"

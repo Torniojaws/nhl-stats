@@ -4,15 +4,14 @@
       <b-row class="game">
         <b-col class="text-right"><b>{{ teams.home.team.name }}</b></b-col>
         <b-col sm="1"><span class="largeNumber text-right scorebox">{{ teams.home.score }}</span></b-col>
-        <b-col sm="1"><span class="largeNumber">&ndash;</span></b-col>
+        <b-col sm="1" class="text-center"><span class="largeNumber">&ndash;</span></b-col>
         <b-col sm="1"><span class="largeNumber text-left scorebox">{{ teams.away.score }}</span></b-col>
         <b-col class="text-left"><b>{{ teams.away.team.name }}</b></b-col>
       </b-row>
       <b-row>
-        <b-col class="text-right">
+        <b-col class="text-right" v-if="results">
           <br />
           <game-points
-            v-if="results.home.points"
             v-for="player in results.home.points"
             :key="player.name"
             :id="player.name"
@@ -22,10 +21,9 @@
         <b-col sm="1"></b-col>
         <b-col sm="1"></b-col>
         <b-col sm="1"></b-col>
-        <b-col>
+        <b-col v-if="results">
           <br />
           <game-points
-            v-if="results.away.points"
             v-for="player in results.away.points"
             :key="player.name"
             :id="player.name"
@@ -34,10 +32,9 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col class="text-right">
+        <b-col class="text-right" v-if="results">
           <br />
           <game-goalies
-            v-if="results.home.goalies"
             v-for="goalie in results.home.goalies"
             :key="goalie.name"
             :id="goalie.name"
@@ -47,10 +44,9 @@
         <b-col sm="1"></b-col>
         <b-col sm="1"></b-col>
         <b-col sm="1"></b-col>
-        <b-col>
+        <b-col v-if="results">
           <br />
           <game-goalies
-            v-if="results.away.goalies"
             v-for="goalie in results.away.goalies"
             :key="goalie.name"
             :id="goalie.name"
@@ -70,7 +66,7 @@ export default {
   props: ['id', 'teams'],
   data () {
     return {
-      results: [],
+      results: null,
     }
   },
   async mounted () {

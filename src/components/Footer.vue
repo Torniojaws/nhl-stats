@@ -21,6 +21,6 @@ export default {
 
 <style>
 footer {
-  background-color: silver;
+  background-color: #efefef;
 }
 </style>
