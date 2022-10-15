@@ -1,4 +1,4 @@
-# DEPRECATED
+# :x: DEPRECATED
 
 A more modern up-to-date version (Vue 3 + Typescript) is here: https://github.com/Torniojaws/nhl-stats-vue3
 
